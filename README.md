@@ -34,10 +34,11 @@ FashionMNIST throughout so that the focus stays on the models and not on the dat
 
 ## Contents
 
-| Lab | Notebook | Topics |
-|-----|----------|--------|
-| 1 | [`hands_on_1.ipynb`](hands_on_1.ipynb) | **Introduction to MLPs and CNNs** — Colab and PyTorch basics, datasets, transforms and `DataLoader`s, MLPs, autograd, optimizers (SGD, Adam), cross-entropy loss, training and evaluation loops, confusion matrices, hyperparameter tuning with grid search (skorch), CNNs and MLP vs CNN comparison |
-| 2a | [`hands_on_2a.ipynb`](hands_on_2a.ipynb) | **Learning without labels: PCA, K-means and Autoencoders** — supervised vs unsupervised learning, PCA as encoder/decoder, explained variance and reconstructions, K-means (by hand and on MNIST), clustering accuracy, autoencoders and their latent space, clustering in latent space, anomaly detection via reconstruction error, pre-training and fine-tuning with few labels |
+| Lab | Notebook | Open in Colab | Topics |
+|-----|----------|---------------|--------|
+| 1 | [`hands_on_1.ipynb`](hands_on_1.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/progManu/mdmc_dl_hands_on/blob/master/hands_on_1.ipynb) | **Introduction to MLPs and CNNs** — Colab and PyTorch basics, datasets, transforms and `DataLoader`s, MLPs, autograd, optimizers (SGD, Adam), cross-entropy loss, training and evaluation loops, confusion matrices, hyperparameter tuning with grid search (skorch), CNNs and MLP vs CNN comparison |
+| 2a | [`hands_on_2a.ipynb`](hands_on_2a.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/progManu/mdmc_dl_hands_on/blob/master/hands_on_2a.ipynb) | **Learning without labels: PCA, K-means and Autoencoders** — supervised vs unsupervised learning, PCA as encoder/decoder, explained variance and reconstructions, K-means (by hand and on MNIST), clustering accuracy, autoencoders and their latent space, clustering in latent space, anomaly detection via reconstruction error, pre-training and fine-tuning with few labels |
+| 2b | [`hands_on_2b.ipynb`](hands_on_2b.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/progManu/mdmc_dl_hands_on/blob/master/hands_on_2b.ipynb) | **Discriminative vs Generative models: Autoencoders and VAEs** — what a classifier knows (noise inputs, drawing digits by gradient ascent), autoencoders and reconstruction loss, sampling the latent space, VAEs (probabilistic encoder, ELBO, KL divergence, reparameterization trick), generation and AE vs VAE interpolation, conditional VAE as a generative classifier, discriminative vs generative comparison |
 
 Each lab ends with a short **homework** building on the day's material; we discuss doubts and
 curiosities at the start of the next session.
@@ -48,9 +49,11 @@ curiosities at the start of the next session.
 .
 ├── hands_on_1.ipynb          # Lab 1 — student version (exercises to complete)
 ├── hands_on_2a.ipynb         # Lab 2a — student version
+├── hands_on_2b.ipynb         # Lab 2b — student version
 ├── solutions/
 │   ├── solved_hands_on_1.ipynb   # Lab 1 — solutions
-│   └── solved_hands_on_2a.ipynb  # Lab 2a — solutions
+│   ├── solved_hands_on_2a.ipynb  # Lab 2a — solutions
+│   └── solved_hands_on_2b.ipynb  # Lab 2b — solutions
 ├── notebooks_imgs/           # figures embedded in the notebooks
 └── pocs/                     # drafts / proofs of concept for upcoming labs
                               #   (e.g. Lab 2: discriminative vs generative models, AEs and VAEs)
@@ -82,7 +85,7 @@ The notebooks use files from this repository (e.g. the figures in `notebooks_img
 notebooks from inside the cloned folder, otherwise those paths will not work.
 
 ```bash
-git clone <REPO_URL> mdmc_dl_hands_on
+git clone https://github.com/progManu/mdmc_dl_hands_on.git mdmc_dl_hands_on
 cd mdmc_dl_hands_on
 ```
 
@@ -90,14 +93,17 @@ cd mdmc_dl_hands_on
 
 The experiments are lightweight, so the labs are designed to run on
 [Google Colab](https://colab.research.google.com/), which provides free (time-limited) GPU access.
-Open a notebook, then clone the repository by running this in a code cell before anything else:
+Open a lab directly in Colab with the **Open in Colab** badge in the [Contents](#contents) table
+(these open the student versions, not the solutions). Then clone the repository by running this
+in a code cell before anything else, so the notebook can find the files it uses:
 
 ```python
-!git clone <REPO_URL> mdmc_dl_hands_on
+!git clone https://github.com/progManu/mdmc_dl_hands_on.git mdmc_dl_hands_on
 %cd mdmc_dl_hands_on
 ```
 
-Enable a GPU from `Runtime > Change runtime type` if needed. PyTorch, torchvision and
+Enable a GPU from `Runtime > Change runtime type` if needed. Your changes live only in the Colab
+session: use `File > Save a copy in Drive` to keep your work. PyTorch, torchvision and
 scikit-learn are preinstalled; install skorch with:
 
 ```bash
@@ -111,7 +117,7 @@ The notebooks were developed with Python 3.12. From inside the cloned `mdmc_dl_h
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install torch torchvision numpy matplotlib scikit-learn skorch jupyter
+pip install -r requirements.txt
 jupyter lab
 ```
 
