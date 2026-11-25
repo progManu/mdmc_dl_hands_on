@@ -1,0 +1,18 @@
+# Deep Learning hands-on labs (MDMC)
+
+# deep learning
+torch>=2.1
+torchvision>=0.16        # torchvision.transforms.v2
+
+# scientific stack
+numpy>=1.24
+matplotlib>=3.7
+scikit-learn>=1.2        # metrics, KFold, PCA, KMeans
+scipy>=1.10
+
+# utilities
+tqdm>=4.60               # progress bars (hyperparameter tuning)
+skorch>=0.15             # only used in pocs/
+
+# notebooks
+jupyter                  # JupyterLab, Notebook, ipykernel and ipywidgets (tqdm.auto progress bars)
